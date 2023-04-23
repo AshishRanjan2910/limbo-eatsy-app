@@ -1,13 +1,13 @@
-import classes from './Meals.module.css';
-import Header from '../Layout/Header';
-import Cart from '../Cart/Cart';
+import React from 'react';
+import AvailableMeals from './AvailableMeals';
+import MealsSummary from './MealsSummary';
 
 function Meals() {
   return (
-    <div className={classes.Meals}>
-      <Header />
-      <Cart />
-    </div>
+    <React.Fragment>
+      <MealsSummary />
+      <AvailableMeals />
+    </React.Fragment>
   );
 }
 
