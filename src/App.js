@@ -15,8 +15,8 @@ function App() {
 
   return (
     <React.Fragment>
-      <Header onShowCart={showCartHandler}/>
-      {isCardShown && <Cart onCloseCart={hideCartHandler}/>}
+      <Header onShowCart={showCartHandler} />
+      {isCardShown && <Cart onCloseCart={hideCartHandler} />}
       <Meals />
     </React.Fragment>
   );
