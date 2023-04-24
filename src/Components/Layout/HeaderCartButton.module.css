@@ -14,7 +14,12 @@
 
 .button:hover,
 .button:active {
-  background-color: #81b945;
+  background-color: #94750e;
+}
+
+.cart-text {
+  display: hidden;
+  color:#171a14;
 }
 
 .icon {
@@ -33,7 +38,7 @@
 
 .button:hover .badge,
 .button:active .badge {
-  background-color: #be9302;
+  background-color: #ad8f2a;
 }
 
 .bump {
@@ -55,5 +60,12 @@
   }
   100% {
     transform: scale(1);
+  }
+}
+
+@media (max-width: 500px) {
+  .cart-text {
+    display: hidden;
+    color:#171a14;
   }
 }
