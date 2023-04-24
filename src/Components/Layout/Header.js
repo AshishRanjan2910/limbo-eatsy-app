@@ -5,7 +5,7 @@ import HeaderCartButton from "./HeaderCartButton";
 import headerImg from "../../assets/walle.png";
 import limboEatsyLogo from "../../assets/limbo-eatsy-logo.png";
 
-function Header() {
+function Header(props) {
   return (
     <React.Fragment>
       <header className={classes.header}>
@@ -13,7 +13,7 @@ function Header() {
           <img src={limboEatsyLogo} alt="LimboEatsy" />
           <h1>LimboEatsy</h1>
         </span>
-        <HeaderCartButton>Cart</HeaderCartButton>
+        <HeaderCartButton onClick={props.onShowCart}>Cart</HeaderCartButton>
       </header>
       <div className={classes["main-image"]}>
         <img src={headerImg} alt="Eating food is now become limbo-eatsy..." />
