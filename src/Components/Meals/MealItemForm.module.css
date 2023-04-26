@@ -13,8 +13,32 @@
   font-weight: bold;
 }
 
-.form button:hover,
+.form button:hover {
+  /* transform: translateY(1.5px) translateX(1px); */
+  background-color: #67ad1c;
+  border-color: #326100;
+}
+
+/* .form button:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 0;
+  height: 0;
+  background-color: #67ad1c;
+  border-radius: 50%;
+  opacity: 0.5;
+} */
+
 .form button:active {
+  /* -webkit-transform: translateZ(-1);
+  transform: scale3d(0.95, 0.95, 0.95); */
+  background: #303333;
+  border-color: #008296;
+  box-shadow: 0 0 0 3px #c8f3fa, inset 0 0 0 2px #fff;
   background-color: #67ad1c;
   border-color: #326100;
 }
