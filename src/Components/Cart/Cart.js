@@ -4,14 +4,19 @@ import { useContext } from "react";
 import cartContext from "../../store/cart-context";
 
 function Cart(props) {
-  const cartCtx = useContext(cartContext)
-  const hasItems = true;
+  const cartCtx = useContext(cartContext);
+  const hasItems = cartCtx.items.length > 0;
   const totalAmount = cartCtx.totalAmount;
 
   const cartItems = (
     <ul className={classes["cart-items"]}>
       {cartCtx.items.map((item) => (
-        <li key={item.id}>{item.name}</li>
+        <li key={item.id} className={classes["item-info"]}>
+          <div>
+            {item.name} ({item.amount})
+          </div>{" "}
+          <div>${item.price}</div>
+        </li>
       ))}
     </ul>
   );
@@ -19,6 +24,7 @@ function Cart(props) {
   return (
     <Modal onClickOnModal={props.onCloseCart}>
       {cartItems}
+      {hasItems && <hr />}
       <div className={classes.total}>
         <span>Total Amount</span>
         <span>${totalAmount}</span>
