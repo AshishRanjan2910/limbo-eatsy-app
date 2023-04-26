@@ -16,7 +16,6 @@ const MealsItemForm = (props) => {
       amount: amount,
       price: props.price,
     });
-    console.log(cartCtx.items);
   };
 
   return (
