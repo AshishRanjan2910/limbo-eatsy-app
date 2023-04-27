@@ -1,5 +1,6 @@
 import React, { useReducer } from "react";
 import CartContext from "./cart-context";
+import classes from "../Components/Layout/HeaderCartButton.module.css";
 
 const defaultCartState = {
   items: [],
@@ -8,6 +9,11 @@ const defaultCartState = {
 
 const cartReducer = (state, action) => {
   if (action.type === "ADD") {
+    var cartLogo = document.querySelector(`.${classes.button}`);
+    cartLogo.classList.add(classes.shake);
+    setTimeout(function () {
+      cartLogo.classList.remove(classes.shake);
+    }, 1000);
     let updatedItems;
     const updatedTotalAmount =
       +state.totalAmount + +action.item.price * +action.item.amount;
@@ -36,7 +42,7 @@ const cartReducer = (state, action) => {
     if (found_item.amount === 1) {
       return {
         items: state.items.filter((item) => {
-          return (item.id !== action.id)
+          return item.id !== action.id;
         }),
         totalAmount: updatedTotalAmount.toFixed(2),
       };
@@ -74,7 +80,7 @@ const CartProvider = (props) => {
   const clearCartHandler = () => {
     dispatchCartAction({ type: "CLEAR" });
   };
-  
+
   const cartContext = {
     items: cartState.items,
     totalAmount: cartState.totalAmount,
