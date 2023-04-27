@@ -1,6 +1,5 @@
 import React, { useReducer } from "react";
 import CartContext from "./cart-context";
-import classes from "../Components/Layout/HeaderCartButton.module.css";
 
 const defaultCartState = {
   items: [],
@@ -9,11 +8,6 @@ const defaultCartState = {
 
 const cartReducer = (state, action) => {
   if (action.type === "ADD") {
-    var cartLogo = document.querySelector(`.${classes.button}`);
-    cartLogo.classList.add(classes.shake);
-    setTimeout(function () {
-      cartLogo.classList.remove(classes.shake);
-    }, 1000);
     let updatedItems;
     const updatedTotalAmount =
       +state.totalAmount + +action.item.price * +action.item.amount;
