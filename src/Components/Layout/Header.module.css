@@ -49,3 +49,16 @@
   object-fit: cover;
   transform: rotateZ(-5deg) translateY(-4rem) translateX(-1rem);
 }
+
+@media (max-width: 650px) {
+  .header {
+    padding: 0 5%;
+    height: 4rem;
+    z-index: 10;
+  }
+  .logo {
+    justify-content: row;
+    transform: scale3d(0.85, 0.85, 0.85);
+    z-index: 7;
+  }
+}

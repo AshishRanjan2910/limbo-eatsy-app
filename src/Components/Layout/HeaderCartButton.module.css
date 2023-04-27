@@ -19,7 +19,7 @@
 
 .cart-text {
   display: hidden;
-  color:#171a14;
+  color: #171a14;
 }
 
 .icon {
@@ -63,9 +63,20 @@
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 626px) {
   .cart-text {
-    display: hidden;
-    color:#171a14;
+    display: none;
+  }
+  .button {
+    display: flex;
+    padding: 0.3rem;
+    margin: 0.3rem;
+  }
+  .badge {
+    background-color: #81b945;
+    padding: 0.25rem 0.4rem;
+    border-radius: 25px;
+    margin-left: 0;
+    font-weight: bold;
   }
 }
