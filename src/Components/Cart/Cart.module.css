@@ -6,6 +6,13 @@
   overflow: auto;
 }
 
+.no-items {
+  text-align: center;
+  margin: 2rem 0;
+  font-size: 2rem;
+  color: #363636;
+}
+
 .item-info {
   display: flex;
   justify-content: space-between;
