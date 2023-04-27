@@ -15,7 +15,7 @@ function Cart(props) {
           <div>
             {item.name} ({item.amount})
           </div>{" "}
-          <div>${item.price}</div>
+          <div>${item.price*item.amount}</div>
         </li>
       ))}
     </ul>

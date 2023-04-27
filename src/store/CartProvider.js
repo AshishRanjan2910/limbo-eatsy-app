@@ -30,10 +30,25 @@ const cartReducer = (state, action) => {
       totalAmount: updatedTotalAmount.toFixed(2),
     };
   } else if (action.type === "REMOVE") {
-    const updatedItems = state.items.filter((item) => item.id !== action.id);
-    const updatedTotalAmount = (+state.totalAmount) - (+action.item.price);
+    const found_item = state.items.find((item) => item.id === action.id);
+    const updatedTotalAmount = (+state.totalAmount) - (+found_item.price);
+    if (found_item.amount === 1) {
+      return {
+        items: state.items.remove(found_item),
+        totalAmount: updatedTotalAmount.toFixed(2),
+      };
+    }
     return {
-      items: updatedItems,
+      items: state.items.map((item) => {
+        if (item.id === action.id) {
+          return {
+            ...item,
+            amount: (+item.amount) - 1,
+          };
+        } else {
+          return item;
+        }
+      }),
       totalAmount: updatedTotalAmount.toFixed(2),
     };
   }
