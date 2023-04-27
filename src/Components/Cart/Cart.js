@@ -15,7 +15,7 @@ function Cart(props) {
           <div>
             {item.name} ({item.amount})
           </div>{" "}
-          <div>${item.price*item.amount}</div>
+          <div>₹{item.price*item.amount}</div>
         </li>
       ))}
     </ul>
@@ -27,7 +27,7 @@ function Cart(props) {
       {hasItems && <hr />}
       <div className={classes.total}>
         <span>Total Amount</span>
-        <span>${totalAmount}</span>
+        <span>₹{totalAmount}</span>
       </div>
       <div className={classes.actions}>
         <button className={classes["button--alt"]} onClick={props.onCloseCart}>
