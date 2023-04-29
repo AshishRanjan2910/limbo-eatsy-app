@@ -42,8 +42,8 @@ const Checkout = (props) => {
   const checkoutData = inputs.map((input, index) => {
     const alias = inputsName[index];
     return (
-      <div className={inputClasses[index]}>
-        <label htmlFor={alias.toLowerCase}>{alias}</label>
+      <div className={inputClasses[index]} key={index}>
+        <label htmlFor={alias.toLowerCase()}>{alias}</label>
         <input
           value={input.enteredValue}
           type="text"
