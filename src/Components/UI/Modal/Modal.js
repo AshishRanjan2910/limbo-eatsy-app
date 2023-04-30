@@ -7,24 +7,6 @@ const Backdrop = (props) => {
 };
 
 const ModalOverlay = (props) => {
-  // style={{ position: 'fixed', bottom }}
-  const [bottom, setBottom] = useState('0');
-
-  useEffect(() => {
-    const handleResize = () => {
-      const height = window.innerHeight;
-      const keyboardHeight = height * 0.4; // adjust this value to your needs
-      const newBottom = keyboardHeight > 0 ? `${keyboardHeight}px` : '0';
-      setBottom(newBottom);
-    };
-
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
-
   return (
     <div className={classes.modal}>
       <div className={classes.content} style={{ bottom }}>{props.children}</div>
