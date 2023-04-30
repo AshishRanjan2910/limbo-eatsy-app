@@ -1,4 +1,3 @@
-import { useReducer } from "react";
 import classes from "./Checkout.module.css";
 import useInput from "../../hooks/use-input";
 
@@ -53,7 +52,7 @@ const Checkout = (props) => {
         />
         {input.hasError && (
           <p className={classes["error-text"]}>
-            {index != 3
+            {index !== 3
               ? `${alias} must not be empty`
               : "Pincode must be 6 characters long"}
           </p>
