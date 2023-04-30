@@ -7,16 +7,7 @@ const Backdrop = (props) => {
 };
 
 const ModalOverlay = (props) => {
-  return (
-    <div className={classes.modal}>
-      <div className={classes.content}>{props.children}</div>
-    </div>
-  );
-};
-
-const portalElement = document.getElementById("overlays");
-
-const Modal = (props) => {
+  // style={{ position: 'fixed', bottom }}
   const [bottom, setBottom] = useState('0');
 
   useEffect(() => {
@@ -33,7 +24,17 @@ const Modal = (props) => {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
-  
+
+  return (
+    <div className={classes.modal}>
+      <div className={classes.content} style={{ bottom }}>{props.children}</div>
+    </div>
+  );
+};
+
+const portalElement = document.getElementById("overlays");
+
+const Modal = (props) => {
   return (
     <React.Fragment>
       {ReactDOM.createPortal(<Backdrop onClickOnModal={props.onClickOnModal} />, portalElement)}
