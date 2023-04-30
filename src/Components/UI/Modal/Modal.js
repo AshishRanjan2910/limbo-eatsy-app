@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from 'react';
 import ReactDOM from "react-dom";
 import classes from "./Modal.module.css";
 
@@ -17,6 +17,23 @@ const ModalOverlay = (props) => {
 const portalElement = document.getElementById("overlays");
 
 const Modal = (props) => {
+  const [bottom, setBottom] = useState('0');
+
+  useEffect(() => {
+    const handleResize = () => {
+      const height = window.innerHeight;
+      const keyboardHeight = height * 0.4; // adjust this value to your needs
+      const newBottom = keyboardHeight > 0 ? `${keyboardHeight}px` : '0';
+      setBottom(newBottom);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+  
   return (
     <React.Fragment>
       {ReactDOM.createPortal(<Backdrop onClickOnModal={props.onClickOnModal} />, portalElement)}
